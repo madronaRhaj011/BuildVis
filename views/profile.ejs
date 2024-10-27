@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffc107; /* Yellow */
+            --secondary-color: #FFF; /* White */
+            --dark-gray: #333;
+            --light-gray: #F7F7F7;
+            --font-sans: 'Poppins', Arial, sans-serif;
+            --cream: #fff3cd;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--cream);
+            font-family: var(--font-sans);
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .profile-header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .profile-info {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .profile-info h3 {
+            margin-top: 0;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .edit-button, .logout-button {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: var(--secondary-color);
+        }
+
+        .edit-button {
+            background-color: var(--primary-color);
+        }
+
+        .edit-button:hover {
+            background-color: #E5C100;
+        }
+
+        .logout-button {
+            background-color: #FF4D4D;
+            margin-top: 10px;
+        }
+
+        .logout-button:hover {
+            background-color: #E63939;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bottom-nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .bottom-nav a i {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h2>User Profile</h2>
+    </div>
+
+    <div class="main-content">
+        <h1 class="profile-header">Your Profile</h1>
+        <div class="profile-info">
+            <h3>Personal Information</h3>
+            <p><strong>Name:</strong> <%= user.name %></p>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <p><strong>Phone:</strong> <%= user.phone %></p>
+            <p><strong>Address:</strong> <%= user.address %></p>
+            <p><strong>Username:</strong> <%= user.username %></p>
+            <a href="/order-history" class="edit-button">View Order History</a>
+            <a href="/edit" class="edit-button">Edit Profile</button>
+            <a href="/logout" class="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <a href="/dashboard"><i class="fa-solid fa-home"></i>Home</a>
+        <a href="/categories"><i class="fa-solid fa-th-list"></i>Categories</a>
+        <a href="/order"><i class="fa-solid fa-box"></i>Orders</a>
+    </div>
+
+</body>
+</html>

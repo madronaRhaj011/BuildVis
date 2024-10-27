@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffc107; /* Yellow */
+            --secondary-color: #FFF; /* White */
+            --dark-gray: #333;
+            --light-gray: #F7F7F7;
+            --font-sans: 'Poppins', Arial, sans-serif;
+            --cream: #fff3cd;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--cream);
+            font-family: var(--font-sans);
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .navbar h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar-icons a {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        /* Categories Section */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category-card {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Bottom Navigation Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bottom-nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .bottom-nav a i {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h2>Categories</h2>
+        <div class="navbar-icons">
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="categories">
+        <% categories.forEach(category => { %>
+            <div class="category-card">
+                <img src="<%= category.image %>" alt="<%= category.name %>">
+                <div class="category-title"><%= category.name %></div>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="bottom-nav">
+        <a href="/dashboard"><i class="fa-solid fa-home"></i>Home</a>
+        <a href="/order"><i class="fa-solid fa-box"></i>Orders</a>
+    </div>
+
+    <script>
+        // Add any necessary JavaScript functionality for buttons or interactions here
+    </script>
+</body>
+</html>
